@@ -1,0 +1,180 @@
+import type { Question } from "@/types/quiz";
+
+export const questions: Question[] = [
+  {
+    id: 1,
+    step: 1,
+    question: "How do you recharge after a long week?",
+    options: [
+      "Spend some quiet time alone",
+      "Meet up with friends and talk",
+      "Go outside and do something active",
+      "Immerse myself in a hobby or creative activity",
+      "Stay home, relax, and enjoy some comfort",
+    ],
+  },
+  {
+    id: 2,
+    step: 1,
+    question: "Which environment feels most like home?",
+    options: [
+      "A quiet place surrounded by nature",
+      "A lively place full of people and activity",
+      "A cozy and familiar place where I feel safe",
+      "A place where I can explore and discover something new",
+      "An open space where I can move freely",
+    ],
+  },
+  {
+    id: 3,
+    step: 1,
+    question: "What time of day do you feel most alive?",
+    options: [
+      "Early morning",
+      "Late morning and afternoon",
+      "Evening",
+      "Late at night",
+      "It depends on what I am doing",
+    ],
+  },
+  {
+    id: 4,
+    step: 1,
+    question: "What pace of life suits you best?",
+    options: [
+      "Calm and steady",
+      "Fast and energetic",
+      "Flexible — I like changing the pace",
+      "Spontaneous and unpredictable",
+      "Balanced, with time for both activity and rest",
+    ],
+  },
+  {
+    id: 5,
+    step: 1,
+    question: "How do you usually enter a new situation?",
+    options: [
+      "Observe first and understand what is happening",
+      "Jump in and figure things out along the way",
+      "Look for someone I can rely on",
+      "Explore the possibilities and choose my own path",
+      "Prepare carefully before taking action",
+    ],
+  },
+
+  {
+    id: 6,
+    step: 2,
+    question: "How do you make an important decision?",
+    options: [
+      "Carefully analyze all the information first",
+      "Trust my intuition and first impression",
+      "Discuss it with people I trust",
+      "Consider what will give me the most freedom",
+      "Choose the option that feels safest and most reliable",
+    ],
+  },
+  {
+    id: 7,
+    step: 2,
+    question: "What role do you naturally take in a group?",
+    options: [
+      "Take the lead and organize everyone",
+      "Support others and keep the group together",
+      "Observe and offer ideas when needed",
+      "Bring energy and encourage everyone",
+      "Prefer to work independently",
+    ],
+  },
+  {
+    id: 8,
+    step: 2,
+    question: "How do you react to conflict?",
+    options: [
+      "Stay calm and try to understand both sides",
+      "Address the problem directly",
+      "Give myself time to think before responding",
+      "Try to lighten the tension and find common ground",
+      "Avoid unnecessary conflict and step away",
+    ],
+  },
+  {
+    id: 9,
+    step: 2,
+    question: "Which quality do you value most in others?",
+    options: ["Loyalty", "Honesty", "Kindness", "Courage", "Curiosity"],
+  },
+  {
+    id: 10,
+    step: 2,
+    question: "How would your closest friends describe you?",
+    options: [
+      "Reliable and dependable",
+      "Independent and strong-minded",
+      "Warm and caring",
+      "Adventurous and spontaneous",
+      "Thoughtful and observant",
+    ],
+  },
+
+  {
+    id: 11,
+    step: 3,
+    question: "What kind of challenge excites you most?",
+    options: [
+      "Solving a difficult problem that requires careful thinking",
+      "Taking on something completely new and unfamiliar",
+      "Working toward a challenging goal with a clear result",
+      "Helping a group overcome a difficult situation",
+      "Doing something that pushes me outside my comfort zone",
+    ],
+  },
+  {
+    id: 12,
+    step: 3,
+    question: "What do you do first when you feel stressed?",
+    options: [
+      "Take a step back and spend some time alone",
+      "Talk to someone I trust",
+      "Focus on solving the problem immediately",
+      "Distract myself with something enjoyable",
+      "Slow down and give myself time to recover",
+    ],
+  },
+  {
+    id: 13,
+    step: 3,
+    question: "Which travel style sounds most appealing?",
+    options: [
+      "A peaceful trip surrounded by nature",
+      "An exciting adventure with an unpredictable route",
+      "Exploring a new city and discovering hidden places",
+      "A comfortable trip with everything planned in advance",
+      "Traveling with close friends and sharing experiences",
+    ],
+  },
+  {
+    id: 14,
+    step: 3,
+    question: "What is your strongest natural instinct?",
+    options: [
+      "Protect the people I care about",
+      "Explore and discover what is beyond the familiar",
+      "Stay alert and notice what others might miss",
+      "Take action when something needs to be done",
+      "Find a peaceful solution when things become difficult",
+    ],
+  },
+  {
+    id: 15,
+    step: 3,
+    question: "If you could choose one special ability, what would it be?",
+    options: [
+      "Understand what people are really feeling",
+      "Move freely anywhere without limits",
+      "See things that others cannot notice",
+      "Have incredible strength and endurance",
+      "Always know which path to choose",
+    ],
+  },
+];

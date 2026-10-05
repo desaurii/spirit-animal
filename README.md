@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+What's Your Spirit Animal?
 
-## Getting Started
+A multi-step personality quiz built with Next.js, React, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+The quiz contains 15 single-choice questions divided into 3 steps. After completing the quiz, the answers are sent to the server, which requests a structured result from the OpenAI API. The result includes a spirit animal, tagline, explanation, strengths, and one thing to watch out for.
 
-```bash
+Tech stack
+Next.js (App Router)
+React
+TypeScript
+Tailwind CSS
+Axios
+Zod
+OpenAI API
+Features
+15 questions in 3 steps
+Single-choice answers with radio buttons
+Back / Next navigation
+Step progress indicator
+Validation before moving to the next step
+Loading state during API requests
+Error state with retry
+Result card with the generated spirit animal
+Retake quiz functionality
+Quiz progress saved in localStorage
+Answers and current step restored after page reload
+Runtime validation with Zod
+OpenAI API key used only on the server
+Getting started
+
+Install dependencies:
+
+npm install
+
+Start the development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
+Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a .env.local file in the project root:
 
-## Learn More
+OPENAI_API_KEY=your_api_key
 
-To learn more about Next.js, take a look at the following resources:
+The API key is used only on the server and should not be committed to Git.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Project structure
+app/
+  api/
+    spirit-animal/
+      route.ts
+  page.tsx
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+components/
+  quiz/
+    Quiz.tsx
+    QuizStep.tsx
+    QuestionCard.tsx
+    Progress.tsx
+    ResultCard.tsx
 
-## Deploy on Vercel
+data/
+  questions.ts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+lib/
+  api.ts
+  openai.ts
+  storage.ts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+types/
+  quiz.ts
+How it works
+User answers questions
+        ↓
+Quiz state
+        ↓
+Axios POST request
+        ↓
+/api/spirit-animal
+        ↓
+Server-side validation
+        ↓
+OpenAI API
+        ↓
+Structured result
+        ↓
+ResultCard
+Deployment
+
+The application is designed to be deployed to Vercel.
+
+For production, add OPENAI_API_KEY to the project's Environment Variables in Vercel.
