@@ -90,13 +90,12 @@ export default function Quiz() {
           <p className="mb-6 text-[#1F3B2E]">{error}</p>
 
           <button
-            onClick={handleNext}
-            disabled={isLoading}
+            onClick={() => setError(null)}
             className="rounded-lg bg-[#3C5A3A] px-6 py-3 text-white 
             hover:bg-[#6B8E23]
             focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6B8E23] focus-visible:ring-offset-2"
           >
-            {isLoading ? "Trying again..." : "Try again"}
+            Try again
           </button>
         </div>
       ) : result ? (
