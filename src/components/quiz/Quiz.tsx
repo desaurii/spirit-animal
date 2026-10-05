@@ -58,12 +58,13 @@ export default function Quiz() {
 
       return;
     }
-
+    window.scrollTo({ top: 0 });
     setCurrentStep(currentStep + 1);
   };
 
   const handleBack = () => {
     if (currentStep > 1) {
+      window.scrollTo({ top: 0 });
       setCurrentStep(currentStep - 1);
     }
   };
