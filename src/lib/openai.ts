@@ -2,13 +2,22 @@ import OpenAI from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 
 import {
+  SpiritAnimalModelSchema,
   SpiritAnimalResultSchema,
   type SpiritAnimalResult,
 } from "@/types/quiz";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+let openai: OpenAI | undefined;
+
+function getOpenAIClient() {
+  if (openai) return openai;
+
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) throw new Error("OPENAI_API_KEY is not configured");
+
+  openai = new OpenAI({ apiKey });
+  return openai;
+}
 
 export async function getSpiritAnimal(
   answers: Record<string, string>,
@@ -27,11 +36,11 @@ User answers:
 ${JSON.stringify(answers)}
 `;
 
-  const response = await openai.responses.parse({
+  const response = await getOpenAIClient().responses.parse({
     model: "gpt-5.6-luna",
     input: prompt,
     text: {
-      format: zodTextFormat(SpiritAnimalResultSchema, "spirit_animal_result"),
+      format: zodTextFormat(SpiritAnimalModelSchema, "spirit_animal_result"),
     },
   });
 
@@ -39,5 +48,10 @@ ${JSON.stringify(answers)}
     throw new Error("Failed to parse spirit animal result");
   }
 
-  return response.output_parsed;
+  const result = SpiritAnimalResultSchema.safeParse(response.output_parsed);
+  if (!result.success) {
+    throw new Error("Spirit animal result did not meet content limits");
+  }
+
+  return result.data;
 }

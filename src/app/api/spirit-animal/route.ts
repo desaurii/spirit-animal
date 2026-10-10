@@ -22,12 +22,15 @@ export async function POST(request: Request) {
   }
 
   const { answers } = parsedBody.data;
+  const answerIds = Object.keys(answers);
 
-  const allAnswersValid = questions.every((question) => {
-    const answer = answers[String(question.id)];
+  const allAnswersValid =
+    answerIds.length === questions.length &&
+    questions.every((question) => {
+      const answer = answers[String(question.id)];
 
-    return answer !== undefined && question.options.includes(answer);
-  });
+      return answer !== undefined && question.options.includes(answer);
+    });
 
   if (!allAnswersValid) {
     return Response.json({ error: "Invalid answers" }, { status: 400 });

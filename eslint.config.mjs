@@ -5,6 +5,11 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  { rules: { "no-nested-ternary": "error" } },
+  {
+    files: ["**/*.{tsx,jsx}"],
+    rules: { "max-lines": ["error", { max: 100 }] },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
