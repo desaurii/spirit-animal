@@ -48,30 +48,28 @@ OPENAI_API_KEY=your_api_key
 The API key is used only on the server and should not be committed to Git.
 
 Project structure
-app/
-  api/
-    spirit-animal/
-      route.ts
-  page.tsx
-
-components/
-  quiz/
+src/
+  app/
+    api/spirit-animal/route.ts
+    quiz/page.tsx
+    globals.css
+    layout.tsx
+    page.tsx
+  components/quiz/
     Quiz.tsx
-    QuizStep.tsx
-    QuestionCard.tsx
+    QuizActions.tsx
+    QuizContent.tsx
+    QuizError.tsx
+    QuizQuestion.tsx
     Progress.tsx
     ResultCard.tsx
-
-data/
-  questions.ts
-
-lib/
-  api.ts
-  openai.ts
-  storage.ts
-
-types/
-  quiz.ts
+  data/questions.ts
+  lib/
+    api.ts
+    openai.ts
+    quiz-errors.ts
+    storage.ts
+  types/quiz.ts
 How it works
 User answers questions
         ↓
@@ -93,3 +91,10 @@ Deployment
 The application is designed to be deployed to Vercel.
 
 For production, add OPENAI_API_KEY to the project's Environment Variables in Vercel.
+
+Code conventions
+
+- React component files must not exceed 100 lines. ESLint enforces this for TSX and JSX files.
+- Nested ternary expressions are prohibited by ESLint. Use a named condition or explicit branches instead.
+- Use named Tailwind color tokens from `src/app/globals.css` instead of arbitrary hex colors: `bg-canvas`, `text-pine-dark`, `text-forest`, `bg-olive`, `bg-matcha-latte`, `border-sage`, and `bg-cream`.
+- Conditional Tailwind classes should use complete class names in each branch. Dynamically constructing names such as `bg-${color}` prevents Tailwind from detecting and generating those styles.
