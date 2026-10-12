@@ -6,14 +6,15 @@ import { clearQuizState, getQuizState, saveQuizState } from "@/lib/storage";
 import type { SpiritAnimalResult } from "@/types/quiz";
 
 export function useQuiz() {
+  const [initialQuizState] = useState(() => getQuizState());
   const [currentStep, setCurrentStep] = useState(
-    () => getQuizState()?.currentStep ?? 1,
+    () => initialQuizState?.currentStep ?? 1,
   );
   const [answers, setAnswers] = useState<Record<string, string>>(
-    () => getQuizState()?.answers ?? {},
+    () => initialQuizState?.answers ?? {},
   );
   const [result, setResult] = useState<SpiritAnimalResult | null>(
-    () => getQuizState()?.result ?? null,
+    () => initialQuizState?.result ?? null,
   );
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
